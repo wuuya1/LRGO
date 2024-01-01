@@ -7,9 +7,7 @@ import pandas as pd
 
 from plt2d import plot_episode
 
-case_name = 'orca'  # circle_case rand_case
-# safety_weight = 0
-# forname = 2 * safety_weight
+case_name = 'lrgo'  # 'lrgo' or 'orca
 
 abs_path = os.path.abspath('.')
 plot_save_dir = abs_path + '/' + case_name + '/' + 'animations' + '/'

@@ -70,13 +70,13 @@ def gen_objs_pos_sim(ag_num=100, tar_num=500, ob_num=160):
     ls = 0.1 * scl
     us = 0.25 * scl
 
-    # The endpoint and the starting point are located at opposite ends.
-    # task_area = [[0.0, y_start], [x_length, y_start], [x_length, y_length], [0.0, y_length], [0.0, y_start]]
-    # exit_area = [[-x_end, y_start], [0.0, y_start], [0.0, y_length], [-x_end, y_length], [-x_end, y_start]]
+    # simulation 1: The endpoint and the starting point are located at opposite ends
+    task_area = [[0.0, y_start], [x_length, y_start], [x_length, y_length], [0.0, y_length], [0.0, y_start]]
+    exit_area = [[-x_end, y_start], [0.0, y_start], [0.0, y_length], [-x_end, y_length], [-x_end, y_start]]
 
-    # The endpoint and starting point are in the same area.
-    task_area = [[-x_end, y_start], [x_length, y_start], [x_length, y_length], [-x_end, y_length], [-x_end, y_start]]
-    exit_area = [[x_ends, y_start], [x_endg, y_start], [x_endg, y_length], [x_ends, y_length], [x_ends, y_start]]
+    # simulation 2: The endpoint and starting point are in the same area
+    # task_area = [[-x_end, y_start], [x_length, y_start], [x_length, y_length], [-x_end, y_length], [-x_end, y_start]]
+    # exit_area = [[x_ends, y_start], [x_endg, y_start], [x_endg, y_length], [x_ends, y_length], [x_ends, y_start]]
 
     # Generate preselected positions for the robots.
     min_x, max_x, min_y, max_y = get_boundaries(task_area)
@@ -116,9 +116,9 @@ def gen_objs_pos_sim(ag_num=100, tar_num=500, ob_num=160):
                              [2063, 1900], [1713, 1900], [1713, 1550], [2063, 1550]])
 
     # simulation 2: 50 robots and 200 targets, The endpoint and starting point are in the same area.
-    agent_start = agent_start - np.array([600, 0])
-    task_pos = task_pos - np.array([600, 0])
-    obstacle_pos = obstacle_pos - np.array([600, 0])
+    # agent_start = agent_start - np.array([600, 0])
+    # task_pos = task_pos - np.array([600, 0])
+    # obstacle_pos = obstacle_pos - np.array([600, 0])
 
     print(list(agent_start))
     print(list(task_pos))
@@ -436,7 +436,7 @@ def run_temp(total_time=900):
         plt_final_trajs(robots, targets, obstacles)  # Visualize the trajectory points.
 
         # scenario information
-        trajs_save_dir = os.path.dirname(os.path.realpath(__file__)) + '/../draw/orca/log/'
+        trajs_save_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + '/../draw/lrgo/log/'
         write_env_cfg(robots, trajs_save_dir, targets, obstacles, assignment_results)
 
         # write trajectories

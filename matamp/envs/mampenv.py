@@ -39,7 +39,7 @@ class MACAEnv(object):
         t2 = time.time()
         self.solve_ta_cost = t2 - t1
 
-        # 初始全局航迹点可视化
+        # Visualize the initial global trajectory points.
         paths_smooth = []
         for a in self.agents:
             a.solve_ta_cost = self.solve_ta_cost

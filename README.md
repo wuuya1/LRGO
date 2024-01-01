@@ -22,9 +22,12 @@ Requirement
 -----
 
 ```python
-pip install numpy
 pip install pandas
 pip install random
+pip install heapq
+pip install scipy
+pip install json
+pip install collections
 pip install matplotlib
 ```
 
@@ -34,9 +37,14 @@ Applications
 -----
 
 ```python
+Phase 1:
 cd run_example
-python run_exam_gorca_s1.py
+python run_exam_lrgo.py   
 In the file run_example, you can select the pyhton scripts to test different scenarios. 
+
+Phase 2: Visualization
+cd draw
+python annimate.py
 ```
 
 ## Results
@@ -44,7 +52,7 @@ In the file run_example, you can select the pyhton scripts to test different sce
 - #### The first simulation: 50 vehicles visit 203 targets for clearing them and move to the start area.
 
 <p align="center">
-    <img src="draw/figs/figexp2.png" width="1200" height="530" />
+    <img src="draw/figs/figexp2.png" width="1200" height="380" />
 </p>
 
 - 
@@ -52,21 +60,21 @@ In the file run_example, you can select the pyhton scripts to test different sce
 
 
 <p align="center">
-    <img src="draw/figs/evaluation.png" width="1200" height="600" />
+    <img src="draw/figs/evaluation.png" width="1200" height="470" />
 </p>
 
 - #### The first real-world experiment: 5 vehicle visit 11 targets.
 
 
 <p align="center">
-    <img src="draw/figs/figexp5.png" width="1200" height="430" />
+    <img src="draw/figs/figexp5.png" width="1200" height="300" />
 </p>
 
 - #### The first real-world experiment: 5 vehicle visit 11 targets and move to the start area.
 
 
 <p align="center">
-    <img src="draw/figs/figexp6.png" width="1200" height="430" />
+    <img src="draw/figs/figexp6.png" width="1200" height="300" />
 </p>
 
 
