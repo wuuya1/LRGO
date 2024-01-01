@@ -1,5 +1,5 @@
 ## Distributed Multi-vehicle Task Assignment and Motion Planning in Dense Environments
-Python Implementation of multi-vehicle task assignment and motion planning (MVTAMP), including task assignment algorithms: consensus-based bundle algorithm ( [CBBA](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5072249)), lazy sample-based task allocation ([LSTA](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8798293)), decentralized sample-based task allocation ([DSTA](https://link.springer.com/article/10.1007/s11721-022-00213-0)), and our lazy-based review consensus algorithm (LRCA); motion planning algorithms: optimal reciprocal collision avoidance ([ORCA](http://gamma-web.iacs.umd.edu/ORCA/publications/ORCA.pdf)), D*, and our guidance point strategy (GOS). Finally, a novel hierarchical method, LRGO, for solving the MVTAMP applied in non-holonomic vehicles  is presented in this repository.
+Python Implementation of multi-vehicle task assignment and motion planning (MVTAMP), including task assignment algorithms: consensus-based bundle algorithm ( [CBBA](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5072249)), lazy sample-based task allocation ([LSTA](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8798293)), decentralized sample-based task allocation ([DSTA](https://link.springer.com/article/10.1007/s11721-022-00213-0)), and our lazy-based review consensus algorithm (LRCA); motion planning algorithms: optimal reciprocal collision avoidance ([ORCA](http://gamma-web.iacs.umd.edu/ORCA/publications/ORCA.pdf)), [D*](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=351061), and our guidance point strategy ([GOS](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10328899)). Finally, a novel hierarchical method, [LRGO](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10328899), for solving the MVTAMP applied in non-holonomic vehicles  is presented in this repository.
 
 -----
 
@@ -52,7 +52,7 @@ python annimate.py
 - #### The first simulation: 50 vehicles visit 203 targets for clearing them and move to the start area.
 
 <p align="center">
-    <img src="draw/figs/figexp2.png" width="1200" height="380" />
+    <img src="draw/figs/figexp2.png" width="1200" height="400" />
 </p>
 
 - 
@@ -67,17 +67,15 @@ python annimate.py
 
 
 <p align="center">
-    <img src="draw/figs/figexp5.png" width="1200" height="300" />
+    <img src="draw/figs/figexp5.png" width="1200" height="320" />
 </p>
 
 - #### The first real-world experiment: 5 vehicle visit 11 targets and move to the start area.
 
 
 <p align="center">
-    <img src="draw/figs/figexp6.png" width="1200" height="300" />
+    <img src="draw/figs/figexp6.png" width="1200" height="320" />
 </p>
-
-
 
 
 ----
