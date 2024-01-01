@@ -12,11 +12,11 @@ plt_colors = [[0.8500, 0.3250, 0.0980], [0.0, 0.4470, 0.7410], [0.4660, 0.8740, 
 
 def get_2d_car_model(size):
     verts = [
-        [-1. * size, 1. * size],    # 矩形左下角的坐标(left,bottom)
-        [-1. * size, -1. * size],   # 矩形左上角的坐标(left,top)
-        [1. * size, -1. * size],    # 矩形右上角的坐标(right,top)
-        [1. * size, 1. * size],     # 矩形右下角的坐标(right, bottom)
-        [-1. * size, 1. * size],    # 封闭到起点
+        [-1. * size, 1. * size],  # Coordinates of the bottom-left corner of the rectangle (left,bottom)
+        [-1. * size, -1. * size],  # Coordinates of the top-left corner of the rectangle (left,top)
+        [1. * size, -1. * size],  # Coordinates of the top-right corner of the rectangle (right,top)
+        [1. * size, 1. * size],  # Coordinates of the bottom-right corner of the rectangle (right, bottom)
+        [-1. * size, 1. * size],  # Close to the starting point
     ]
     return verts
 
@@ -24,11 +24,11 @@ def get_2d_car_model(size):
 def get_2d_uav_model0(size):
     # size /= 2
     verts = [
-        [0., 1. * size],  # 矩形左下角的坐标(left, bottom)
-        [-0.5 * size, -0.8 * size],  # 矩形左上角的坐标(left, top)
-        [0, -0.2 * size],  # 矩形右上角的坐标(right,top)
-        [0.5 * size, -0.8 * size],  # 矩形右下角的坐标(right, bottom)
-        [0., 1. * size],  # 封闭到起点
+        [0., 1. * size],  # Coordinates of the bottom-left corner of the rectangle (left, bottom)
+        [-0.5 * size, -0.8 * size],  # Coordinates of the top-left corner of the rectangle (left, top)
+        [0, -0.2 * size],  # Coordinates of the top-right corner of the rectangle (right, top)
+        [0.5 * size, -0.8 * size],  # Coordinates of the bottom-right corner of the rectangle (right, bottom)
+        [0., 1. * size],  # Close to the starting point
     ]
     return verts
 
@@ -36,11 +36,11 @@ def get_2d_uav_model0(size):
 def get_2d_uav_model(size):
     # size /= 2
     verts = [
-        [0., 1. * size],  # 矩形左下角的坐标(left, bottom)
-        [-1. * size, -1. * size],  # 矩形左上角的坐标(left, top)
-        [0., -0.5 * size],  # 矩形右上角的坐标(right,top)
-        [1. * size, -1. * size],  # 矩形右下角的坐标(right, bottom)
-        [0., 1. * size],  # 封闭到起点
+        [0., 1. * size],  # Coordinates of the bottom-left corner of the rectangle (left, bottom)
+        [-1. * size, -1. * size],  # Coordinates of the top-left corner of the rectangle (left, top)
+        [0., -0.5 * size],  # Coordinates of the top-right corner of the rectangle (right, top)
+        [1. * size, -1. * size],  # Coordinates of the bottom-right corner of the rectangle (right, bottom)
+        [0., 1. * size],  # Close to the starting point
     ]
     return verts
 
@@ -112,9 +112,9 @@ def draw_rectangle(ax, origin_pos, pos):
     pos_y = pos[1]
     ax.add_patch(
         plt.Rectangle(
-            (pos_x - 5, pos_y - 5),  # (x,y)矩形左下角
-            10,  # width长
-            10,  # height宽
+            (pos_x - 5, pos_y - 5),
+            10,
+            10,
             color='maroon',
             alpha=0.5
         ))
@@ -128,22 +128,22 @@ def convert_to_actual_model_3d(agent_model, pos_global_frame, heading_global_fra
         x = point[0]
         y = point[1]
         z = point[2]
-        # 进行俯仰计算
+        # Perform pitch calculation
         r = sqrt(pow(y, 2) + pow(z, 2))
         beta_model = atan2(z, y)
         beta_ = beta + beta_model
         y = r * cos(beta_)
         z = r * sin(beta_)
-        # 进行翻滚计算
+        # Perform roll calculation
         h = sqrt(pow(x, 2) + pow(z, 2))
         gama_model = atan2(z, x)
         gamma_ = gamma + gama_model
         x = h * cos(gamma_)
         z = h * sin(gamma_)
-        # 进行航向计算
+        # Perform heading calculation
         l = sqrt(pow(x, 2) + pow(y, 2))
         alpha_model = atan2(y, x)
-        alpha_ = alpha + alpha_model - np.pi / 2  # 改加 - np.pi / 2 因为画模型的时候UAV朝向就是正北方向，所以要减去90°
+        alpha_ = alpha + alpha_model - np.pi / 2
         point[0] = l * cos(alpha_) + pos_global_frame[0]
         point[1] = l * sin(alpha_) + pos_global_frame[1]
         point[2] = z + pos_global_frame[2]
