@@ -83,11 +83,14 @@ python annimate.py
 ## Citation
 
 ```
-@article{xu2023distributed,
-  title={Distributed Multi-Vehicle Task Assignment and Motion Planning in Dense Environments},
+@article{xuDistributedMultiVehicleTask2023,
   author={Xu, Gang and Kang, Xiao and Yang, Helei and Wu, Yuchen and Liu, Weiwei and Cao, Junjie and Liu, Yong},
-  journal={IEEE Transactions on Automation Science and Engineering},
-  year={2023},
-  publisher={IEEE}
-}
+  journal={IEEE Transactions on Automation Science and Engineering}, 
+  title={Distributed Multi-Vehicle Task Assignment and Motion Planning in Dense Environments}, 
+  year={2024},
+  month = oct,
+  volume={21},
+  number={4},
+  pages={7027-7039},
+  doi={10.1109/TASE.2023.3336076}}
 ```
